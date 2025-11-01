@@ -17,6 +17,10 @@ interface Settings {
   perempuan?: string
   tahunBerdiri?: string
   luasWilayah?: string
+  kecamatan?: string
+  kabupaten?: string
+  provinsi?: string
+  jumlahLingkungan?: string
   alamat?: string
   telp?: string
   email?: string
@@ -295,6 +299,55 @@ export default function SettingsPage() {
                     onChange={(e) => updateField('luasWilayah', e.target.value)}
                     placeholder="45"
                   />
+                </div>
+              </div>
+
+              <div className="mt-6">
+                <h3 className="text-lg font-semibold mb-4">Informasi Wilayah</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="kecamatan">Kecamatan</Label>
+                    <Input
+                      id="kecamatan"
+                      type="text"
+                      value={formData.kecamatan || ''}
+                      onChange={(e) => updateField('kecamatan', e.target.value)}
+                      placeholder="Kawangkoan"
+                    />
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="kabupaten">Kabupaten</Label>
+                    <Input
+                      id="kabupaten"
+                      type="text"
+                      value={formData.kabupaten || ''}
+                      onChange={(e) => updateField('kabupaten', e.target.value)}
+                      placeholder="Minahasa"
+                    />
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="provinsi">Provinsi</Label>
+                    <Input
+                      id="provinsi"
+                      type="text"
+                      value={formData.provinsi || ''}
+                      onChange={(e) => updateField('provinsi', e.target.value)}
+                      placeholder="Sulawesi Utara"
+                    />
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="jumlahLingkungan">Jumlah Lingkungan</Label>
+                    <Input
+                      id="jumlahLingkungan"
+                      type="text"
+                      value={formData.jumlahLingkungan || ''}
+                      onChange={(e) => updateField('jumlahLingkungan', e.target.value)}
+                      placeholder="6"
+                    />
+                  </div>
                 </div>
               </div>
 

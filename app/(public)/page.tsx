@@ -106,6 +106,12 @@ export default async function Home() {
     getGallery()
   ])
 
+  const currentDate = new Date().toLocaleDateString('id-ID', {
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric'
+  })
+
   const stats = [
     { 
       label: "Penduduk", 
@@ -113,6 +119,7 @@ export default async function Home() {
       iconName: "users" as const,
       gradient: "bg-linear-to-br from-green-500/10 to-green-600/5",
       iconColor: "text-green-600",
+      updatedAt: currentDate,
     },
     { 
       label: "Keluarga", 
@@ -120,6 +127,7 @@ export default async function Home() {
       iconName: "home" as const,
       gradient: "bg-linear-to-br from-emerald-500/10 to-emerald-600/5",
       iconColor: "text-emerald-600",
+      updatedAt: currentDate,
     },
     { 
       label: "Tahun Berdiri", 
@@ -178,6 +186,7 @@ export default async function Home() {
                 iconName={stats[0].iconName}
                 gradient={stats[0].gradient}
                 iconColor={stats[0].iconColor}
+                updatedAt={stats[0].updatedAt}
                 delay={0}
               />
               <StatCard 
@@ -187,6 +196,7 @@ export default async function Home() {
                 iconName={stats[1].iconName}
                 gradient={stats[1].gradient}
                 iconColor={stats[1].iconColor}
+                updatedAt={stats[1].updatedAt}
                 delay={100}
               />
             </div>

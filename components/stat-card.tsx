@@ -13,6 +13,7 @@ interface StatCardProps {
   gradient: string
   iconColor: string
   delay?: number
+  updatedAt?: string
   trend?: {
     value: number
     label: string
@@ -35,6 +36,7 @@ export function StatCard({
   gradient, 
   iconColor,
   delay = 0,
+  updatedAt,
   trend 
 }: StatCardProps) {
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.3 })
@@ -108,10 +110,9 @@ export function StatCard({
           <p className="text-sm font-medium text-slate-500 uppercase tracking-wider">{label}</p>
         </div>
 
-        {trend && (
-          <div className="flex items-center gap-2 pt-3 border-t border-amber-100">
-            <div className={`w-2 h-2 rounded-full ${iconColor.replace('text-', 'bg-')} animate-pulse`} />
-            <p className="text-xs text-slate-500">{trend.label}</p>
+        {updatedAt && (
+          <div className="pt-3 border-t border-amber-100">
+            <p className="text-xs text-slate-400">Diperbarui: {updatedAt}</p>
           </div>
         )}
 

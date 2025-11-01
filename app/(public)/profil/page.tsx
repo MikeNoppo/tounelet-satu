@@ -15,8 +15,16 @@ interface ProfileData {
   profilUmum?: string
 }
 
+interface WilayahData {
+  kecamatan?: string
+  kabupaten?: string
+  provinsi?: string
+  jumlahLingkungan?: string
+}
+
 export default function ProfilPage() {
   const [profileData, setProfileData] = useState<ProfileData>({})
+  const [wilayahData, setWilayahData] = useState<WilayahData>({})
   const [loading, setLoading] = useState(true)
   const [bannerImage, setBannerImage] = useState(DEFAULT_BANNER)
 
@@ -49,6 +57,12 @@ export default function ProfilPage() {
           if (settings.profilBanner) {
             setBannerImage(settings.profilBanner)
           }
+          setWilayahData({
+            kecamatan: settings.kecamatan,
+            kabupaten: settings.kabupaten,
+            provinsi: settings.provinsi,
+            jumlahLingkungan: settings.jumlahLingkungan,
+          })
         }
       } catch (error) {
         console.error('Failed to fetch banner:', error)
@@ -164,26 +178,25 @@ export default function ProfilPage() {
                 )}
               </TabsContent>
 
-              {/* Tab 4: Wilayah (Static for now) */}
               <TabsContent value="wilayah" className="space-y-8 mt-8">
                 <div>
                   <h2 className="text-2xl font-bold text-slate-900 mb-4">Informasi Wilayah</h2>
                   <div className="space-y-3">
                     <div className="flex justify-between border-b border-slate-200 pb-2">
                       <span className="text-slate-600">Kecamatan:</span>
-                      <span className="font-semibold text-slate-900">Kawangkoan</span>
+                      <span className="font-semibold text-slate-900">{wilayahData.kecamatan || '-'}</span>
                     </div>
                     <div className="flex justify-between border-b border-slate-200 pb-2">
                       <span className="text-slate-600">Kabupaten:</span>
-                      <span className="font-semibold text-slate-900">Minahasa</span>
+                      <span className="font-semibold text-slate-900">{wilayahData.kabupaten || '-'}</span>
                     </div>
                     <div className="flex justify-between border-b border-slate-200 pb-2">
                       <span className="text-slate-600">Provinsi:</span>
-                      <span className="font-semibold text-slate-900">Sulawesi Utara</span>
+                      <span className="font-semibold text-slate-900">{wilayahData.provinsi || '-'}</span>
                     </div>
                     <div className="flex justify-between border-b border-slate-200 pb-2">
                       <span className="text-slate-600">Jumlah Lingkungan:</span>
-                      <span className="font-semibold text-slate-900">6</span>
+                      <span className="font-semibold text-slate-900">{wilayahData.jumlahLingkungan || '-'}</span>
                     </div>
                   </div>
                 </div>
