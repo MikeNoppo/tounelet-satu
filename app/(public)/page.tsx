@@ -113,7 +113,6 @@ export default async function Home() {
       iconName: "users" as const,
       gradient: "bg-linear-to-br from-green-500/10 to-green-600/5",
       iconColor: "text-green-600",
-      trend: { value: 2.5, label: "dari tahun lalu" }
     },
     { 
       label: "Keluarga", 
@@ -121,7 +120,6 @@ export default async function Home() {
       iconName: "home" as const,
       gradient: "bg-linear-to-br from-emerald-500/10 to-emerald-600/5",
       iconColor: "text-emerald-600",
-      trend: { value: 1.2, label: "dari tahun lalu" }
     },
     { 
       label: "Tahun Berdiri", 
@@ -161,31 +159,70 @@ export default async function Home() {
       <HeroSection />
 
       {/* Statistics Section */}
-      <section className="py-16 px-4 bg-white">
+      <section className="py-20 px-4 bg-gradient-to-br from-green-50 via-white to-amber-50">
         <div className="mx-auto max-w-7xl">
-          <h2 className="text-3xl font-bold text-slate-900 mb-12 text-center">Sekilas Kependudukan</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {stats.map((stat, index) => (
+          <div className="text-center mb-12">
+            <div className="inline-block">
+              <h2 className="text-4xl font-bold text-slate-900 mb-2">Data Desa</h2>
+              <div className="h-1 w-24 bg-green-600 mx-auto rounded-full"></div>
+            </div>
+            <p className="text-slate-600 mt-4">Informasi kependudukan dan wilayah</p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="md:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-6">
               <StatCard 
-                key={stat.label} 
-                label={stat.label} 
-                value={stat.value}
-                iconName={stat.iconName}
-                gradient={stat.gradient}
-                iconColor={stat.iconColor}
-                trend={stat.trend}
-                delay={index * 100}
+                key={stats[0].label} 
+                label={stats[0].label} 
+                value={stats[0].value}
+                iconName={stats[0].iconName}
+                gradient={stats[0].gradient}
+                iconColor={stats[0].iconColor}
+                delay={0}
               />
-            ))}
+              <StatCard 
+                key={stats[1].label} 
+                label={stats[1].label} 
+                value={stats[1].value}
+                iconName={stats[1].iconName}
+                gradient={stats[1].gradient}
+                iconColor={stats[1].iconColor}
+                delay={100}
+              />
+            </div>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 gap-6">
+              <StatCard 
+                key={stats[2].label} 
+                label={stats[2].label} 
+                value={stats[2].value}
+                iconName={stats[2].iconName}
+                gradient={stats[2].gradient}
+                iconColor={stats[2].iconColor}
+                delay={200}
+              />
+              <StatCard 
+                key={stats[3].label} 
+                label={stats[3].label} 
+                value={stats[3].value}
+                iconName={stats[3].iconName}
+                gradient={stats[3].gradient}
+                iconColor={stats[3].iconColor}
+                delay={300}
+              />
+            </div>
           </div>
         </div>
       </section>
 
-            {/* Pengumuman Section */}
-      <section className="py-16 px-4 bg-muted/30">
+      {/* Pengumuman Section */}
+      <section className="py-16 px-4 bg-white">
         <div className="container mx-auto">
-          <div className="flex items-center justify-between mb-8">
-            <h2 className="text-3xl font-bold">Pengumuman</h2>
+          <div className="flex items-center justify-between mb-12">
+            <div>
+              <h2 className="text-4xl font-bold text-slate-900 mb-2">Pengumuman</h2>
+              <div className="h-1 w-20 bg-green-600 rounded-full"></div>
+            </div>
             <Button variant="outline" asChild>
               <Link href="/berita?tab=pengumuman">Lihat Semua</Link>
             </Button>
@@ -214,11 +251,14 @@ export default async function Home() {
         </div>
       </section>
 
-            {/* Potensi Section */}
-      <section className="py-16 px-4 bg-background">
+      {/* Potensi Section */}
+      <section className="py-16 px-4 bg-gradient-to-br from-amber-50 via-white to-green-50">
         <div className="container mx-auto">
-          <div className="flex items-center justify-between mb-8">
-            <h2 className="text-3xl font-bold">Potensi Kelurahan</h2>
+          <div className="flex items-center justify-between mb-12">
+            <div>
+              <h2 className="text-4xl font-bold text-slate-900 mb-2">Potensi Desa</h2>
+              <div className="h-1 w-20 bg-green-600 rounded-full"></div>
+            </div>
             <Button variant="outline" asChild>
               <Link href="/potensi">Lihat Semua</Link>
             </Button>
@@ -247,9 +287,15 @@ export default async function Home() {
         </div>
       </section>
 
-      <section className="py-16 px-4 bg-slate-50">
+      <section className="py-16 px-4 bg-white">
         <div className="mx-auto max-w-7xl">
-          <h2 className="text-3xl font-bold text-slate-900 mb-12 text-center">Galeri Kegiatan</h2>
+          <div className="text-center mb-12">
+            <div className="inline-block">
+              <h2 className="text-4xl font-bold text-slate-900 mb-2">Galeri Kegiatan</h2>
+              <div className="h-1 w-24 bg-green-600 mx-auto rounded-full"></div>
+            </div>
+            <p className="text-slate-600 mt-4">Dokumentasi aktivitas dan kegiatan desa</p>
+          </div>
           {gallery.length === 0 ? (
             <EmptyState
               icon={ImageIcon}

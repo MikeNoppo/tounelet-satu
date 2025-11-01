@@ -1,7 +1,5 @@
 import type React from "react"
-import { Sidebar } from "@/components/sidebar"
-import { SidebarProvider } from "@/components/sidebar-provider"
-import { MainContentWrapper } from "@/components/main-content-wrapper"
+import { TopNav } from "@/components/top-nav"
 import { Footer } from "@/components/footer"
 import { FloatingWhatsApp } from "@/components/floating-whatsapp"
 
@@ -11,13 +9,11 @@ export default function PublicLayout({
   children: React.ReactNode
 }>) {
   return (
-    <SidebarProvider>
-      <Sidebar />
-      <MainContentWrapper>
-        <main className="flex-1">{children}</main>
-        <Footer />
-      </MainContentWrapper>
+    <div className="min-h-screen flex flex-col">
+      <TopNav />
+      <main className="flex-1">{children}</main>
+      <Footer />
       <FloatingWhatsApp />
-    </SidebarProvider>
+    </div>
   )
 }
