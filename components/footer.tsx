@@ -1,32 +1,59 @@
+"use client"
+
 import Link from "next/link"
+import { useEffect, useState } from "react"
+
+interface ContactSettings {
+  email?: string
+  telp?: string
+  alamat?: string
+}
 
 export function Footer() {
   const currentYear = new Date().getFullYear()
+  const [contact, setContact] = useState<ContactSettings>({})
+
+  useEffect(() => {
+    const fetchContact = async () => {
+      try {
+        const res = await fetch('/api/public/settings')
+        if (res.ok) {
+          const data = await res.json()
+          setContact({
+            email: data.email,
+            telp: data.telp,
+            alamat: data.alamat,
+          })
+        }
+      } catch (error) {
+        console.error('Failed to fetch contact info:', error)
+      }
+    }
+    fetchContact()
+  }, [])
 
   return (
     <footer className="border-t border-slate-200 bg-slate-50">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
-        {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-          {/* Column 1: Logo & Address */}
           <div>
             <div className="flex items-center gap-2 font-bold text-lg text-slate-900 mb-4">
               <span className="text-2xl">🌾</span>
               <span>Desa Tounelet Satu</span>
             </div>
-            <p className="text-slate-600 text-sm">Kec. Sonder, Minahasa</p>
+            <p className="text-slate-600 text-sm">
+              {contact.alamat || 'Kec. Sonder, Minahasa'}
+            </p>
           </div>
 
-          {/* Column 2: Contact */}
           <div>
             <h3 className="font-semibold text-slate-900 mb-4">Kontak</h3>
             <div className="space-y-2 text-sm text-slate-600">
-              <p>Email: kelurahansendangan@contoh.go.id</p>
-              <p>Telepon/WA: 0812-xxxx-xxxx</p>
+              <p>Email: {contact.email || '-'}</p>
+              <p>Telepon/WA: {contact.telp || '-'}</p>
             </div>
           </div>
 
-          {/* Column 3: Quick Links */}
           <div>
             <h3 className="font-semibold text-slate-900 mb-4">Tautan Cepat</h3>
             <nav className="space-y-2 text-sm">
@@ -49,7 +76,6 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Copyright */}
         <div className="border-t border-slate-200 pt-8 text-center text-sm text-slate-600">
           <p>© {currentYear} Desa Tounelet Satu. Semua hak dilindungi.</p>
         </div>

@@ -68,8 +68,8 @@ function PostCard({ post, delay }: { post: Post; delay: number }) {
           <Badge
             className={`shadow-lg ${
               post.type === "BERITA"
-                ? "bg-blue-500 hover:bg-blue-600 text-white"
-                : "bg-green-500 hover:bg-green-600 text-white"
+                ? "bg-green-600 hover:bg-green-700 text-white"
+                : "bg-amber-500 hover:bg-amber-600 text-white"
             }`}
           >
             {post.type === "BERITA" ? "📰 Berita" : "📢 Pengumuman"}

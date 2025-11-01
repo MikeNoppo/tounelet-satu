@@ -52,7 +52,7 @@ export function TopNav() {
 
           <Link
             href="/admin/login"
-            className="hidden md:flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-white bg-slate-800 hover:bg-slate-900 transition-colors"
+            className="hidden md:flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-white bg-green-700 hover:bg-green-800 transition-colors"
           >
             Admin
           </Link>
@@ -91,7 +91,7 @@ export function TopNav() {
               <Link
                 href="/admin/login"
                 onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium bg-slate-800 text-white hover:bg-slate-900 transition-colors mt-2"
+                className="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium bg-green-700 text-white hover:bg-green-800 transition-colors mt-2"
               >
                 Admin Login
               </Link>
