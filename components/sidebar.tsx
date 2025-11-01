@@ -31,11 +31,11 @@ export function Sidebar() {
         <div className="flex items-center justify-between h-16 px-4 border-b border-sidebar-border">
           {isExpanded && (
             <Link href="/" className="flex items-center gap-2 font-bold text-sidebar-foreground">
-              <span className="text-2xl">🥜</span>
-              <span className="text-sm">Sendangan</span>
+              <span className="text-2xl">🌾</span>
+              <span className="text-sm">Tounelet Satu</span>
             </Link>
           )}
-          {!isExpanded && <span className="text-2xl mx-auto">🥜</span>}
+          {!isExpanded && <span className="text-2xl mx-auto">🌾</span>}
         </div>
 
         {/* Navigation Items */}

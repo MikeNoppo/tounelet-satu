@@ -1,10 +1,10 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { Users, Home, User } from "lucide-react"
+import { Users, Home, User, Calendar, Map } from "lucide-react"
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 
-type IconName = "users" | "home" | "user-male" | "user-female"
+type IconName = "users" | "home" | "user-male" | "user-female" | "calendar" | "map"
 
 interface StatCardProps {
   label: string
@@ -24,6 +24,8 @@ const iconMap = {
   "home": Home,
   "user-male": User,
   "user-female": User,
+  "calendar": Calendar,
+  "map": Map,
 }
 
 export function StatCard({ 

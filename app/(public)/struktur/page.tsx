@@ -80,7 +80,7 @@ export default function StrukturPage() {
         </div>
         <div className="mx-auto max-w-7xl relative z-10">
           <h1 className="text-4xl font-bold">Struktur Pemerintahan</h1>
-          <p className="text-slate-300 mt-2">Bagan organisasi Kelurahan Sendangan</p>
+          <p className="text-slate-300 mt-2">Bagan organisasi Desa Tounelet Satu</p>
         </div>
       </section>
 

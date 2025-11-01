@@ -11,10 +11,10 @@ export function Footer() {
           {/* Column 1: Logo & Address */}
           <div>
             <div className="flex items-center gap-2 font-bold text-lg text-slate-900 mb-4">
-              <span className="text-2xl">🥜</span>
-              <span>Kelurahan Sendangan</span>
+              <span className="text-2xl">🌾</span>
+              <span>Desa Tounelet Satu</span>
             </div>
-            <p className="text-slate-600 text-sm">Jl. Sendangan, Kec. Kawangkoan, Kab. Minahasa</p>
+            <p className="text-slate-600 text-sm">Kec. Sonder, Minahasa</p>
           </div>
 
           {/* Column 2: Contact */}
@@ -51,7 +51,7 @@ export function Footer() {
 
         {/* Copyright */}
         <div className="border-t border-slate-200 pt-8 text-center text-sm text-slate-600">
-          <p>© {currentYear} Kelurahan Sendangan. Semua hak dilindungi.</p>
+          <p>© {currentYear} Desa Tounelet Satu. Semua hak dilindungi.</p>
         </div>
       </div>
     </footer>

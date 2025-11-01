@@ -12,8 +12,8 @@ export function Header() {
             href="/" 
             className="flex items-center gap-2 font-bold text-lg text-slate-900 group transition-all hover-scale"
           >
-            <span className="text-2xl group-hover:rotate-12 transition-transform">🥜</span>
-            <span className="group-hover:text-blue-600 transition-colors">Kelurahan Sendangan</span>
+            <span className="text-2xl group-hover:rotate-12 transition-transform">🌾</span>
+            <span className="group-hover:text-green-600 transition-colors">Desa Tounelet Satu</span>
           </Link>
 
           {/* Empty space for layout balance */}

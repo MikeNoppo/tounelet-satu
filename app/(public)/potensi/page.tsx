@@ -79,7 +79,7 @@ function PotentialCard({ potential, delay }: { potential: Potential; delay: numb
       <div className="p-6 relative">
         <div className="flex items-center gap-1 text-xs text-muted-foreground mb-3">
           <MapPin className="h-3 w-3" />
-          <span>Kelurahan Sendangan</span>
+          <span>Desa Tounelet Satu</span>
         </div>
 
         <h3 className="font-bold text-slate-900 text-xl mb-3 group-hover:text-secondary transition-colors line-clamp-2">
@@ -87,7 +87,7 @@ function PotentialCard({ potential, delay }: { potential: Potential; delay: numb
         </h3>
         
         <p className="text-slate-600 text-sm leading-relaxed line-clamp-3">
-          {potential.desc || "Potensi unggulan dari Kelurahan Sendangan"}
+          {potential.desc || "Potensi unggulan dari Desa Tounelet Satu"}
         </p>
 
         <div className="mt-4 pt-4 border-t border-slate-100">
@@ -214,8 +214,8 @@ export default function PotensiPage() {
           />
         </div>
         <div className="mx-auto max-w-7xl relative z-10">
-          <h1 className="text-4xl font-bold">Potensi Unggulan Kelurahan</h1>
-          <p className="text-slate-300 mt-2">Produk dan wisata unggulan Kelurahan Sendangan</p>
+          <h1 className="text-4xl font-bold">Potensi Unggulan Desa</h1>
+          <p className="text-slate-300 mt-2">Produk dan wisata unggulan Desa Tounelet Satu</p>
         </div>
       </section>
 
@@ -238,7 +238,7 @@ export default function PotensiPage() {
             <EmptyState
               icon={Sparkles}
               title="Belum Ada Potensi Unggulan"
-              description="Saat ini belum ada data potensi unggulan yang tersedia. Silakan kembali lagi nanti untuk melihat berbagai potensi menarik dari Kelurahan Sendangan."
+              description="Saat ini belum ada data potensi unggulan yang tersedia. Silakan kembali lagi nanti untuk melihat berbagai potensi menarik dari Desa Tounelet Satu."
               actionLabel="Kembali ke Beranda"
               actionHref="/"
             />

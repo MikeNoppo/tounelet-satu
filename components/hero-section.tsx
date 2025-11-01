@@ -51,7 +51,7 @@ export function HeroSection() {
       >
         <Image
           src={heroImage}
-          alt="Kelurahan Sendangan"
+          alt="Desa Tounelet Satu"
           fill
           priority
           className="object-cover opacity-20"
@@ -75,26 +75,25 @@ export function HeroSection() {
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
             <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
           </span>
-          <span className="text-sm font-medium">Website Resmi Kelurahan Sendangan</span>
+          <span className="text-sm font-medium">Website Resmi Desa Tounelet Satu</span>
         </div>
 
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-balance animate-fade-in-up animation-delay-200">
           Selamat Datang di
-          <span className="block mt-2 bg-linear-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent animate-float">
-            Kelurahan Sendangan
+          <span className="block mt-2 bg-linear-to-r from-green-400 via-emerald-400 to-teal-400 bg-clip-text text-transparent animate-float">
+            Desa Tounelet Satu
           </span>
         </h1>
 
         <p className="text-lg md:text-xl text-slate-300 mb-10 max-w-2xl mx-auto text-balance animate-fade-in-up animation-delay-400">
-          Akses informasi publik, berita, dan potensi kelurahan dalam satu tempat.
-          Terhubung dengan layanan digital untuk kemudahan warga.
+          Membangun masa depan yang lebih cerah melalui kolaborasi, inovasi, dan dedikasi untuk kesejahteraan bersama seluruh masyarakat desa.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-up animation-delay-600">
           <Link href="/peta">
             <Button 
               size="lg" 
-              className="text-white bg-blue-600 hover:bg-blue-700 hover-scale glow-on-hover group"
+              className="text-white bg-green-600 hover:bg-green-700 hover-scale glow-on-hover group"
             >
               Lihat Peta
               <ChevronDown className="ml-2 h-4 w-4 group-hover:translate-y-0.5 transition-transform" />

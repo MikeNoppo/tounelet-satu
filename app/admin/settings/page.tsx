@@ -15,6 +15,8 @@ interface Settings {
   jumlahKK?: string
   lakiLaki?: string
   perempuan?: string
+  tahunBerdiri?: string
+  luasWilayah?: string
   alamat?: string
   telp?: string
   email?: string
@@ -270,6 +272,28 @@ export default function SettingsPage() {
                     value={formData.perempuan || ''}
                     onChange={(e) => updateField('perempuan', e.target.value)}
                     placeholder="3.040"
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="tahunBerdiri">Tahun Berdiri</Label>
+                  <Input
+                    id="tahunBerdiri"
+                    type="text"
+                    value={formData.tahunBerdiri || ''}
+                    onChange={(e) => updateField('tahunBerdiri', e.target.value)}
+                    placeholder="1987"
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="luasWilayah">Luas Wilayah (km²)</Label>
+                  <Input
+                    id="luasWilayah"
+                    type="text"
+                    value={formData.luasWilayah || ''}
+                    onChange={(e) => updateField('luasWilayah', e.target.value)}
+                    placeholder="45"
                   />
                 </div>
               </div>

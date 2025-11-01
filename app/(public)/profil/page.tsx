@@ -69,7 +69,7 @@ export default function ProfilPage() {
           />
         </div>
         <div className="mx-auto max-w-7xl relative z-10">
-          <h1 className="text-4xl font-bold">Profil Kelurahan Sendangan</h1>
+          <h1 className="text-4xl font-bold">Profil Desa Tounelet Satu</h1>
           <p className="text-slate-300 mt-2">Informasi lengkap tentang kelurahan kami</p>
         </div>
       </section>

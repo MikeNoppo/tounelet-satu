@@ -144,7 +144,7 @@ export default function GaleriPage() {
         </div>
         <div className="mx-auto max-w-7xl relative z-10">
           <h1 className="text-4xl font-bold">Galeri Kegiatan</h1>
-          <p className="text-slate-300 mt-2">Dokumentasi kegiatan dan potensi Kelurahan Sendangan</p>
+          <p className="text-slate-300 mt-2">Dokumentasi kegiatan dan potensi Desa Tounelet Satu</p>
         </div>
       </section>
 
@@ -165,7 +165,7 @@ export default function GaleriPage() {
             <EmptyState
               icon={ImageIcon}
               title="Galeri Masih Kosong"
-              description="Belum ada foto kegiatan yang tersedia saat ini. Pantau terus halaman ini untuk melihat dokumentasi kegiatan dan momen menarik dari Kelurahan Sendangan."
+              description="Belum ada foto kegiatan yang tersedia saat ini. Pantau terus halaman ini untuk melihat dokumentasi kegiatan dan momen menarik dari Desa Tounelet Satu."
               actionLabel="Lihat Berita Terkini"
               actionHref="/berita"
             />

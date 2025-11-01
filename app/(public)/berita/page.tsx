@@ -259,7 +259,7 @@ export default function BeritaPage() {
         </div>
         <div className="mx-auto max-w-7xl relative z-10">
           <h1 className="text-4xl font-bold">Berita & Pengumuman</h1>
-          <p className="text-slate-300 mt-2">Informasi terkini dari Kelurahan Sendangan</p>
+          <p className="text-slate-300 mt-2">Informasi terkini dari Desa Tounelet Satu</p>
         </div>
       </section>
 

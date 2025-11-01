@@ -36,6 +36,8 @@ interface Settings {
   jumlahKK?: string
   lakiLaki?: string
   perempuan?: string
+  tahunBerdiri?: string
+  luasWilayah?: string
 }
 
 async function getSettings(): Promise<Settings> {
@@ -106,36 +108,34 @@ export default async function Home() {
 
   const stats = [
     { 
-      label: "Total Jiwa", 
+      label: "Penduduk", 
       value: settings.totalJiwa || "-",
       iconName: "users" as const,
-      gradient: "bg-linear-to-br from-blue-500/10 to-blue-600/5",
-      iconColor: "text-blue-600",
-      trend: { value: 2.5, label: "dari bulan lalu" }
-    },
-    { 
-      label: "Jumlah KK", 
-      value: settings.jumlahKK || "-",
-      iconName: "home" as const,
       gradient: "bg-linear-to-br from-green-500/10 to-green-600/5",
       iconColor: "text-green-600",
-      trend: { value: 1.2, label: "dari bulan lalu" }
+      trend: { value: 2.5, label: "dari tahun lalu" }
     },
     { 
-      label: "Laki-laki", 
-      value: settings.lakiLaki || "-",
-      iconName: "user-male" as const,
-      gradient: "bg-linear-to-br from-purple-500/10 to-purple-600/5",
-      iconColor: "text-purple-600",
-      trend: { value: 0.8, label: "dari bulan lalu" }
+      label: "Keluarga", 
+      value: settings.jumlahKK || "-",
+      iconName: "home" as const,
+      gradient: "bg-linear-to-br from-emerald-500/10 to-emerald-600/5",
+      iconColor: "text-emerald-600",
+      trend: { value: 1.2, label: "dari tahun lalu" }
     },
     { 
-      label: "Perempuan", 
-      value: settings.perempuan || "-",
-      iconName: "user-female" as const,
-      gradient: "bg-linear-to-br from-pink-500/10 to-pink-600/5",
-      iconColor: "text-pink-600",
-      trend: { value: 1.5, label: "dari bulan lalu" }
+      label: "Tahun Berdiri", 
+      value: settings.tahunBerdiri || "-",
+      iconName: "calendar" as const,
+      gradient: "bg-linear-to-br from-amber-500/10 to-amber-600/5",
+      iconColor: "text-amber-600",
+    },
+    { 
+      label: "Luas Wilayah", 
+      value: settings.luasWilayah ? `${settings.luasWilayah} km²` : "-",
+      iconName: "map" as const,
+      gradient: "bg-linear-to-br from-teal-500/10 to-teal-600/5",
+      iconColor: "text-teal-600",
     },
   ]
 
@@ -194,7 +194,7 @@ export default async function Home() {
             <EmptyState
               icon={Newspaper}
               title="Belum Ada Pengumuman"
-              description="Belum ada pengumuman terbaru saat ini. Pantau terus halaman ini untuk mendapatkan informasi penting dari Kelurahan Sendangan."
+              description="Belum ada pengumuman terbaru saat ini. Pantau terus halaman ini untuk mendapatkan informasi penting dari Desa Tounelet Satu."
               showAnimation={true}
             />
           ) : (

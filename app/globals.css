@@ -4,40 +4,39 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Updated color palette for Kelurahan Sendangan - professional dark blue, green, and neutral tones */
-  --background: oklch(0.98 0 0);
+  --background: oklch(0.97 0.01 80);
   --foreground: oklch(0.15 0 0);
-  --card: oklch(1 0 0);
+  --card: oklch(0.99 0.005 80);
   --card-foreground: oklch(0.15 0 0);
-  --popover: oklch(1 0 0);
+  --popover: oklch(0.99 0.005 80);
   --popover-foreground: oklch(0.15 0 0);
-  --primary: oklch(0.25 0.08 250);
-  --primary-foreground: oklch(0.98 0 0);
-  --secondary: oklch(0.35 0.12 140);
-  --secondary-foreground: oklch(0.98 0 0);
-  --muted: oklch(0.92 0 0);
+  --primary: oklch(0.5 0.15 145);
+  --primary-foreground: oklch(0.99 0 0);
+  --secondary: oklch(0.88 0.02 80);
+  --secondary-foreground: oklch(0.2 0 0);
+  --muted: oklch(0.94 0.01 80);
   --muted-foreground: oklch(0.5 0 0);
-  --accent: oklch(0.45 0.15 140);
-  --accent-foreground: oklch(0.98 0 0);
+  --accent: oklch(0.5 0.15 145);
+  --accent-foreground: oklch(0.99 0 0);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.577 0.245 27.325);
-  --border: oklch(0.92 0 0);
-  --input: oklch(0.92 0 0);
-  --ring: oklch(0.25 0.08 250);
-  --chart-1: oklch(0.45 0.15 140);
-  --chart-2: oklch(0.25 0.08 250);
-  --chart-3: oklch(0.6 0.1 200);
-  --chart-4: oklch(0.35 0.12 140);
-  --chart-5: oklch(0.55 0.12 180);
+  --border: oklch(0.9 0.01 80);
+  --input: oklch(0.9 0.01 80);
+  --ring: oklch(0.5 0.15 145);
+  --chart-1: oklch(0.5 0.15 145);
+  --chart-2: oklch(0.6 0.12 160);
+  --chart-3: oklch(0.7 0.1 140);
+  --chart-4: oklch(0.45 0.18 150);
+  --chart-5: oklch(0.55 0.12 135);
   --radius: 0.625rem;
-  --sidebar: oklch(0.98 0 0);
+  --sidebar: oklch(0.98 0.005 80);
   --sidebar-foreground: oklch(0.15 0 0);
-  --sidebar-primary: oklch(0.25 0.08 250);
-  --sidebar-primary-foreground: oklch(0.98 0 0);
-  --sidebar-accent: oklch(0.45 0.15 140);
-  --sidebar-accent-foreground: oklch(0.98 0 0);
-  --sidebar-border: oklch(0.92 0 0);
-  --sidebar-ring: oklch(0.25 0.08 250);
+  --sidebar-primary: oklch(0.5 0.15 145);
+  --sidebar-primary-foreground: oklch(0.99 0 0);
+  --sidebar-accent: oklch(0.5 0.15 145);
+  --sidebar-accent-foreground: oklch(0.99 0 0);
+  --sidebar-border: oklch(0.92 0.01 80);
+  --sidebar-ring: oklch(0.5 0.15 145);
 }
 
 .dark {
