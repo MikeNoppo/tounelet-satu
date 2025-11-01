@@ -1,0 +1,33 @@
+"use client"
+
+import { usePathname } from "next/navigation"
+import { AdminSidebar } from "@/components/admin/admin-sidebar"
+import { AdminHeader } from "@/components/admin/admin-header"
+import { SessionProvider } from "next-auth/react"
+
+export default function AdminLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  const pathname = usePathname()
+  const isLoginPage = pathname === "/admin/login"
+
+  if (isLoginPage) {
+    return <SessionProvider>{children}</SessionProvider>
+  }
+
+  return (
+    <SessionProvider>
+      <div className="flex h-screen overflow-hidden">
+        <AdminSidebar />
+        <div className="flex flex-1 flex-col overflow-hidden">
+          <AdminHeader />
+          <main className="flex-1 overflow-y-auto bg-slate-50 p-6">
+            {children}
+          </main>
+        </div>
+      </div>
+    </SessionProvider>
+  )
+}
