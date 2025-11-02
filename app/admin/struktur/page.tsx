@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useCallback } from "react"
 import dynamic from "next/dynamic"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
@@ -40,11 +40,7 @@ export default function StrukturPage() {
   const [publishing, setPublishing] = useState(false)
   const { toast} = useToast()
 
-  useEffect(() => {
-    fetchStructure()
-  }, [])
-
-  const fetchStructure = async () => {
+  const fetchStructure = useCallback(async () => {
     setLoading(true)
     try {
       const res = await fetch('/api/admin/structure')
@@ -61,9 +57,13 @@ export default function StrukturPage() {
     } finally {
       setLoading(false)
     }
-  }
+  }, [toast])
 
-  const handleDelete = async () => {
+  useEffect(() => {
+    fetchStructure()
+  }, [fetchStructure])
+
+  const handleDelete = useCallback(async () => {
     if (!deleteId) return
 
     const childrenCount = members.filter(m => m.parentId === deleteId).length
@@ -93,27 +93,27 @@ export default function StrukturPage() {
       setDeleting(false)
       setDeleteId(null)
     }
-  }
+  }, [deleteId, members, toast, fetchStructure])
 
-  const handleEdit = (id: string) => {
+  const handleEdit = useCallback((id: string) => {
     const member = members.find(m => m.id === id)
     if (member) {
       setEditMember(member)
       setShowModal(true)
     }
-  }
+  }, [members])
 
-  const handleAddNew = () => {
+  const handleAddNew = useCallback(() => {
     setEditMember(null)
     setShowModal(true)
-  }
+  }, [])
 
-  const handleModalClose = () => {
+  const handleModalClose = useCallback(() => {
     setShowModal(false)
     setEditMember(null)
-  }
+  }, [])
 
-  const handlePublish = async () => {
+  const handlePublish = useCallback(async () => {
     if (!hasUnpublished) {
       toast({
         title: "Info",
@@ -146,12 +146,12 @@ export default function StrukturPage() {
     } finally {
       setPublishing(false)
     }
-  }
+  }, [hasUnpublished, toast, fetchStructure])
 
-  const handlePositionChange = () => {
+  const handlePositionChange = useCallback(() => {
     // Optimistic update - mark as unpublished when position changes
     setHasUnpublished(true)
-  }
+  }, [])
 
   return (
     <div className="space-y-6">
