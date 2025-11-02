@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -34,12 +34,30 @@ export default function StructureModal({
   const { toast } = useToast()
   const [isLoading, setIsLoading] = useState(false)
   const [fotoFile, setFotoFile] = useState<File | null>(null)
-  const [fotoPreview, setFotoPreview] = useState<string | null>(member?.fotoUrl || null)
+  const [fotoPreview, setFotoPreview] = useState<string | null>(null)
   const [formData, setFormData] = useState({
-    jabatan: member?.jabatan || '',
-    nama: member?.nama || '',
-    nip: member?.nip || '',
+    jabatan: '',
+    nama: '',
+    nip: '',
   })
+
+  // Reset form when modal opens or member changes
+  useEffect(() => {
+    if (open) {
+      setFormData({
+        jabatan: member?.jabatan || '',
+        nama: member?.nama || '',
+        nip: member?.nip || '',
+      })
+      setFotoPreview(member?.fotoUrl || null)
+      setFotoFile(null)
+    } else {
+      // Reset form when modal closes
+      setFormData({ jabatan: '', nama: '', nip: '' })
+      setFotoPreview(null)
+      setFotoFile(null)
+    }
+  }, [open, member])
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0]
