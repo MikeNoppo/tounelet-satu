@@ -122,7 +122,7 @@ export default function StructureCanvas({
       return newHistory
     })
     setHistoryIndex(prev => Math.min(prev + 1, 49))
-  }, [historyIndex, isUndoRedo])
+  }, [isUndoRedo, historyIndex])
 
   // Undo function
   const handleUndo = useCallback(() => {
@@ -219,7 +219,8 @@ export default function StructureCanvas({
       setEdges(newEdges)
       saveToHistory(newNodes, newEdges)
     }
-  }, [members, buildNodesAndEdges, setNodes, setEdges, saveToHistory])
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [members, buildNodesAndEdges])
 
   const saveAllPositions = async (nodesToSave: Node[]) => {
     try {
@@ -301,7 +302,8 @@ export default function StructureCanvas({
         }
       })
     }
-  }, [onNodesChange, edges, saveToHistory, setNodes, onPositionChange])
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [onNodesChange, edges, onPositionChange])
 
   const handleConnect: OnConnect = useCallback(async (connection: Connection) => {
     if (!connection.source || !connection.target) return
