@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 import Image from "next/image"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogTrigger } from "@/components/ui/dialog"
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle } from "@/components/ui/alert-dialog"
 import { Plus, Upload, Trash2, Loader2, Image as ImageIcon } from "lucide-react"
 import { useToast } from "@/hooks/use-toast"
@@ -98,6 +98,9 @@ export default function GaleriPage() {
           <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto">
             <DialogHeader>
               <DialogTitle>Upload Foto Galeri</DialogTitle>
+              <DialogDescription>
+                Upload satu atau beberapa foto sekaligus untuk galeri kegiatan
+              </DialogDescription>
             </DialogHeader>
             <MultipleImageUpload onUploadComplete={handleUploadComplete} />
           </DialogContent>
