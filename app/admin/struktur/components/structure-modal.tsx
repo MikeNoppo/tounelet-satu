@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from 'react'
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog'
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
@@ -134,6 +134,9 @@ export default function StructureModal({
           <DialogTitle>
             {member ? 'Edit Anggota' : 'Tambah Anggota'}
           </DialogTitle>
+          <DialogDescription>
+            {member ? 'Update informasi anggota struktur organisasi' : 'Tambahkan anggota baru ke struktur organisasi'}
+          </DialogDescription>
         </DialogHeader>
         
         <form onSubmit={handleSubmit} className="space-y-4">
