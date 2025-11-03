@@ -11,6 +11,11 @@ export const metadata: Metadata = {
   title: "Desa Tounelet Satu",
   description: "Website resmi Desa Tounelet Satu - Akses informasi publik, berita, dan potensi desa",
   generator: "v0.app",
+  icons: {
+    icon: '/favicon/favicon.ico',
+    apple: '/favicon/favicon.ico',
+    shortcut: '/favicon/favicon.ico',
+  },
 }
 
 export default function RootLayout({
