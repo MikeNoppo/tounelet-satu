@@ -170,7 +170,7 @@ export default function ProfilPage() {
                         </div>
                       ) : (
                         <div>
-                          <h2 className="text-2xl font-bold text-slate-900 mb-4">Sejarah Kelurahan</h2>
+                          <h2 className="text-2xl font-bold text-slate-900 mb-4">Sejarah Desa Tounelet Satu</h2>
                           <div
                             className="prose prose-slate max-w-none"
                             dangerouslySetInnerHTML={{ __html: profileData.sejarah }}
