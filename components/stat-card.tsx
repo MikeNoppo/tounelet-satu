@@ -47,18 +47,18 @@ export function StatCard({
 
   // Parse numeric value for counter animation
   const numericValue = parseInt(value.replace(/[^0-9]/g, '')) || 0
+  const isYearData = label.toLowerCase().includes('tahun')
 
   useEffect(() => {
     if (isVisible && !hasAnimated && numericValue > 0) {
       setHasAnimated(true)
       let startTime: number | null = null
-      const duration = 2000 // 2 seconds
+      const duration = 2000
       
       const animate = (currentTime: number) => {
         if (!startTime) startTime = currentTime
         const progress = Math.min((currentTime - startTime) / duration, 1)
         
-        // Easing function for smooth animation
         const easeOutQuart = 1 - Math.pow(1 - progress, 4)
         setCount(Math.floor(easeOutQuart * numericValue))
         
@@ -72,7 +72,7 @@ export function StatCard({
   }, [isVisible, hasAnimated, numericValue])
 
   const displayValue = numericValue > 0 && hasAnimated 
-    ? count.toLocaleString('id-ID')
+    ? (isYearData ? count.toString() : count.toLocaleString('id-ID'))
     : value
 
   return (
