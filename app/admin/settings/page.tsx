@@ -384,7 +384,6 @@ export default function SettingsPage() {
                   type="text"
                   value={formData.alamat || ''}
                   onChange={(e) => updateField('alamat', e.target.value)}
-                  placeholder="Jl. Raya Sendangan, Kec. Kawangkoan"
                 />
               </div>
 
@@ -412,7 +411,6 @@ export default function SettingsPage() {
                   type="email"
                   value={formData.email || ''}
                   onChange={(e) => updateField('email', e.target.value)}
-                  placeholder="kelurahan.sendangan@example.com"
                 />
               </div>
 
@@ -423,7 +421,6 @@ export default function SettingsPage() {
                   type="text"
                   value={formData.website || ''}
                   onChange={(e) => updateField('website', e.target.value)}
-                  placeholder="https://sendangan.example.com"
                 />
               </div>
 

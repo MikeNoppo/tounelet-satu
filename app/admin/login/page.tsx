@@ -58,7 +58,7 @@ export default function LoginPage() {
         <CardHeader className="text-center">
           <div className="mx-auto mb-4 text-5xl">🥜</div>
           <CardTitle className="text-2xl">Admin Panel</CardTitle>
-          <CardDescription>Kelurahan Sendangan</CardDescription>
+          <CardDescription>Desa Tounelet Satu</CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-4">

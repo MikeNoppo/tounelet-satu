@@ -16,7 +16,7 @@ export function AdminHeader() {
   return (
     <header className="sticky top-0 z-40 flex h-16 items-center justify-between border-b bg-white px-6">
       <div className="flex items-center gap-4">
-        <h1 className="text-xl font-semibold text-slate-900">Kelurahan Sendangan CMS</h1>
+        <h1 className="text-xl font-semibold text-slate-900">Desa Tounelet Satu CMS</h1>
       </div>
 
       <div className="flex items-center gap-4">
