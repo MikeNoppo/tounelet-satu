@@ -3,7 +3,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import { usePathname } from "next/navigation"
-import { Home, Users, Layers, Zap, Newspaper, Images, Map, Menu, X } from "lucide-react"
+import { Home, Users, Layers, Zap, Newspaper, Images, Map, Menu, X, Building2 } from "lucide-react"
 import { useState } from "react"
 
 const navItems = [
@@ -13,6 +13,7 @@ const navItems = [
   { label: "Potensi", href: "/potensi", icon: Zap },
   { label: "Berita", href: "/berita", icon: Newspaper },
   { label: "Galeri", href: "/galeri", icon: Images },
+  { label: "Sarana", href: "/sarana-prasarana", icon: Building2 },
   { label: "Peta", href: "/peta", icon: Map },
 ]
 

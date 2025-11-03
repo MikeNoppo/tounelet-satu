@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import { ChevronLeft, ChevronRight, Home, Users, Layers, Zap, Newspaper, Images, Map, ShieldCheck } from "lucide-react"
+import { ChevronLeft, ChevronRight, Home, Users, Layers, Zap, Newspaper, Images, Map, Building2, ShieldCheck } from "lucide-react"
 import { usePathname } from "next/navigation"
 import { useSidebar } from "./sidebar-provider"
 
@@ -13,6 +13,7 @@ const navItems = [
   { label: "Potensi", href: "/potensi", icon: Zap },
   { label: "Berita", href: "/berita", icon: Newspaper },
   { label: "Galeri", href: "/galeri", icon: Images },
+  { label: "Sarana & Prasarana", href: "/sarana-prasarana", icon: Building2 },
   { label: "Peta", href: "/peta", icon: Map },
 ]
 

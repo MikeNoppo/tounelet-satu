@@ -13,6 +13,7 @@ import {
   Network,
   Settings,
   LogOut,
+  Building2,
 } from "lucide-react"
 import { signOut } from "next-auth/react"
 import { Button } from "@/components/ui/button"
@@ -47,6 +48,11 @@ const menuItems = [
     title: "Struktur",
     href: "/admin/struktur",
     icon: Network,
+  },
+  {
+    title: "Sarana",
+    href: "/admin/sarana",
+    icon: Building2,
   },
   {
     title: "Users",
