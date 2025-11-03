@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { useEffect, useState } from "react"
 
 interface ContactSettings {
@@ -38,7 +39,12 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           <div>
             <div className="flex items-center gap-2 font-bold text-lg text-slate-900 mb-4">
-              <span className="text-2xl">🌾</span>
+              <Image 
+                src="/Emblem_of_Minahasa.png" 
+                alt="Logo Minahasa" 
+                width={32} 
+                height={32}
+              />
               <span>Desa Tounelet Satu</span>
             </div>
             <p className="text-slate-600 text-sm">

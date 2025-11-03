@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { usePathname } from "next/navigation"
 import { Home, Users, Layers, Zap, Newspaper, Images, Map, Menu, X } from "lucide-react"
 import { useState } from "react"
@@ -24,7 +25,12 @@ export function TopNav() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <Link href="/" className="flex items-center gap-2 font-bold text-lg text-slate-900 hover:text-green-600 transition-colors">
-            <span className="text-2xl">🌾</span>
+            <Image 
+              src="/Emblem_of_Minahasa.png" 
+              alt="Logo Minahasa" 
+              width={32} 
+              height={32}
+            />
             <span className="hidden sm:inline">Desa Tounelet Satu</span>
             <span className="sm:hidden">Tounelet Satu</span>
           </Link>
