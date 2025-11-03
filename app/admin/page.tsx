@@ -16,7 +16,8 @@ import {
   Mail,
   Shield,
   TrendingUp,
-  Eye
+  Eye,
+  Building2
 } from "lucide-react"
 import { useToast } from "@/hooks/use-toast"
 import { DeleteConfirmationDialog } from "@/components/admin/delete-confirmation-dialog"
@@ -35,6 +36,7 @@ export default function AdminDashboard() {
     posts: 0,
     gallery: 0,
     potentials: 0,
+    facilities: 0,
     users: 0,
   })
   const [users, setUsers] = useState<User[]>([])
@@ -56,17 +58,19 @@ export default function AdminDashboard() {
 
   const fetchStats = async () => {
     try {
-      const [postsRes, galleryRes, potentialsRes, usersRes] = await Promise.all([
+      const [postsRes, galleryRes, potentialsRes, facilitiesRes, usersRes] = await Promise.all([
         fetch('/api/admin/posts'),
         fetch('/api/admin/gallery'),
         fetch('/api/admin/potentials'),
+        fetch('/api/admin/facilities'),
         fetch('/api/admin/users'),
       ])
 
-      const [posts, gallery, potentials, users] = await Promise.all([
+      const [posts, gallery, potentials, facilities, users] = await Promise.all([
         postsRes.json().catch(() => []),
         galleryRes.json().catch(() => []),
         potentialsRes.json().catch(() => []),
+        facilitiesRes.json().catch(() => []),
         usersRes.json().catch(() => []),
       ])
 
@@ -74,6 +78,7 @@ export default function AdminDashboard() {
         posts: posts.length || 0,
         gallery: gallery.length || 0,
         potentials: potentials.length || 0,
+        facilities: facilities.length || 0,
         users: users.length || 0,
       })
     } catch (error) {
@@ -211,6 +216,14 @@ export default function AdminDashboard() {
       bgColor: "bg-purple-50",
     },
     {
+      title: "Sarana",
+      value: stats.facilities.toString(),
+      icon: Building2,
+      description: "Fasilitas desa",
+      color: "text-cyan-600",
+      bgColor: "bg-cyan-50",
+    },
+    {
       title: "Users",
       value: stats.users.toString(),
       icon: Users,
@@ -286,6 +299,13 @@ export default function AdminDashboard() {
               >
                 <p className="font-medium text-slate-900">Upload Galeri</p>
                 <p className="text-sm text-slate-500">Tambah foto kegiatan</p>
+              </a>
+              <a
+                href="/admin/sarana"
+                className="block p-3 rounded-lg border border-slate-200 hover:bg-slate-50 transition-colors"
+              >
+                <p className="font-medium text-slate-900">Kelola Sarana</p>
+                <p className="text-sm text-slate-500">Tambah fasilitas desa</p>
               </a>
             </div>
           </CardContent>
