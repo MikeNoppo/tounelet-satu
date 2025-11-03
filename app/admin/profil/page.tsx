@@ -168,7 +168,7 @@ export default function ProfilPage() {
 
             <TabsContent value="sejarah" className="space-y-4 mt-6">
               <div className="space-y-2">
-                <Label>Sejarah Kelurahan</Label>
+                <Label>Sejarah Desa Tounelet Satu</Label>
                 <NovelEditor
                   initialValue={profileData.sejarah}
                   onChange={(value) => updateField('sejarah', value)}

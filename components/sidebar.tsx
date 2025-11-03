@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { ChevronLeft, ChevronRight, Home, Users, Layers, Zap, Newspaper, Images, Map, ShieldCheck } from "lucide-react"
 import { usePathname } from "next/navigation"
 import { useSidebar } from "./sidebar-provider"
@@ -31,11 +32,24 @@ export function Sidebar() {
         <div className="flex items-center justify-between h-16 px-4 border-b border-sidebar-border">
           {isExpanded && (
             <Link href="/" className="flex items-center gap-2 font-bold text-sidebar-foreground">
-              <span className="text-2xl">🌾</span>
+              <Image 
+                src="/Emblem_of_Minahasa.png" 
+                alt="Logo Minahasa" 
+                width={28} 
+                height={28}
+              />
               <span className="text-sm">Tounelet Satu</span>
             </Link>
           )}
-          {!isExpanded && <span className="text-2xl mx-auto">🌾</span>}
+          {!isExpanded && (
+            <Image 
+              src="/Emblem_of_Minahasa.png" 
+              alt="Logo Minahasa" 
+              width={28} 
+              height={28}
+              className="mx-auto"
+            />
+          )}
         </div>
 
         {/* Navigation Items */}

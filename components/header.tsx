@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 
 export function Header() {
   return (
@@ -12,7 +13,13 @@ export function Header() {
             href="/" 
             className="flex items-center gap-2 font-bold text-lg text-slate-900 group transition-all hover-scale"
           >
-            <span className="text-2xl group-hover:rotate-12 transition-transform">🌾</span>
+            <Image 
+              src="/Emblem_of_Minahasa.png" 
+              alt="Logo Minahasa" 
+              width={32} 
+              height={32} 
+              className="group-hover:rotate-12 transition-transform"
+            />
             <span className="group-hover:text-green-600 transition-colors">Desa Tounelet Satu</span>
           </Link>
 

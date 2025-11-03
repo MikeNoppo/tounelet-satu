@@ -5,6 +5,7 @@ import Image from "next/image"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Skeleton } from "@/components/ui/skeleton"
 import { FileText } from "lucide-react"
+import { motion, AnimatePresence } from "framer-motion"
 
 const DEFAULT_BANNER = "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?q=80&w=2069"
 
@@ -27,6 +28,7 @@ export default function ProfilPage() {
   const [wilayahData, setWilayahData] = useState<WilayahData>({})
   const [loading, setLoading] = useState(true)
   const [bannerImage, setBannerImage] = useState(DEFAULT_BANNER)
+  const [activeTab, setActiveTab] = useState("visi-misi")
 
   useEffect(() => {
     const fetchProfile = async () => {
@@ -102,7 +104,7 @@ export default function ProfilPage() {
               </div>
             </div>
           ) : (
-            <Tabs defaultValue="visi-misi" className="w-full">
+            <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
               <TabsList className="grid w-full grid-cols-4">
                 <TabsTrigger value="visi-misi">Visi & Misi</TabsTrigger>
                 <TabsTrigger value="sejarah">Sejarah</TabsTrigger>
@@ -110,96 +112,137 @@ export default function ProfilPage() {
                 <TabsTrigger value="wilayah">Wilayah</TabsTrigger>
               </TabsList>
 
-              {/* Tab 1: Visi & Misi */}
               <TabsContent value="visi-misi" className="space-y-8 mt-8">
-                {!profileData.visi && !profileData.misi ? (
-                  <div className="flex flex-col items-center justify-center py-12 text-center">
-                    <FileText className="h-16 w-16 text-muted-foreground mb-4" />
-                    <p className="text-muted-foreground">Belum ada data visi dan misi</p>
-                  </div>
-                ) : (
-                  <>
-                    {profileData.visi && (
-                      <div>
-                        <h2 className="text-2xl font-bold text-slate-900 mb-4">Visi</h2>
-                        <div
-                          className="prose prose-slate max-w-none"
-                          dangerouslySetInnerHTML={{ __html: profileData.visi }}
-                        />
-                      </div>
-                    )}
+                <AnimatePresence mode="wait">
+                  {activeTab === "visi-misi" && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                      transition={{ duration: 0.3, ease: "easeOut" }}
+                    >
+                      {!profileData.visi && !profileData.misi ? (
+                        <div className="flex flex-col items-center justify-center py-12 text-center">
+                          <FileText className="h-16 w-16 text-muted-foreground mb-4" />
+                          <p className="text-muted-foreground">Belum ada data visi dan misi</p>
+                        </div>
+                      ) : (
+                        <>
+                          {profileData.visi && (
+                            <div>
+                              <h2 className="text-2xl font-bold text-slate-900 mb-4">Visi</h2>
+                              <div
+                                className="prose prose-slate max-w-none"
+                                dangerouslySetInnerHTML={{ __html: profileData.visi }}
+                              />
+                            </div>
+                          )}
 
-                    {profileData.misi && (
-                      <div>
-                        <h2 className="text-2xl font-bold text-slate-900 mb-4">Misi</h2>
-                        <div
-                          className="prose prose-slate max-w-none"
-                          dangerouslySetInnerHTML={{ __html: profileData.misi }}
-                        />
-                      </div>
-                    )}
-                  </>
-                )}
+                          {profileData.misi && (
+                            <div>
+                              <h2 className="text-2xl font-bold text-slate-900 mb-4">Misi</h2>
+                              <div
+                                className="prose prose-slate max-w-none"
+                                dangerouslySetInnerHTML={{ __html: profileData.misi }}
+                              />
+                            </div>
+                          )}
+                        </>
+                      )}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </TabsContent>
 
-              {/* Tab 2: Sejarah */}
               <TabsContent value="sejarah" className="space-y-8 mt-8">
-                {!profileData.sejarah ? (
-                  <div className="flex flex-col items-center justify-center py-12 text-center">
-                    <FileText className="h-16 w-16 text-muted-foreground mb-4" />
-                    <p className="text-muted-foreground">Belum ada data sejarah</p>
-                  </div>
-                ) : (
-                  <div>
-                    <h2 className="text-2xl font-bold text-slate-900 mb-4">Sejarah Kelurahan</h2>
-                    <div
-                      className="prose prose-slate max-w-none"
-                      dangerouslySetInnerHTML={{ __html: profileData.sejarah }}
-                    />
-                  </div>
-                )}
+                <AnimatePresence mode="wait">
+                  {activeTab === "sejarah" && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                      transition={{ duration: 0.3, ease: "easeOut" }}
+                    >
+                      {!profileData.sejarah ? (
+                        <div className="flex flex-col items-center justify-center py-12 text-center">
+                          <FileText className="h-16 w-16 text-muted-foreground mb-4" />
+                          <p className="text-muted-foreground">Belum ada data sejarah</p>
+                        </div>
+                      ) : (
+                        <div>
+                          <h2 className="text-2xl font-bold text-slate-900 mb-4">Sejarah Desa Tounelet Satu</h2>
+                          <div
+                            className="prose prose-slate max-w-none"
+                            dangerouslySetInnerHTML={{ __html: profileData.sejarah }}
+                          />
+                        </div>
+                      )}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </TabsContent>
 
-              {/* Tab 3: Profil Umum */}
               <TabsContent value="profil-umum" className="space-y-8 mt-8">
-                {!profileData.profilUmum ? (
-                  <div className="flex flex-col items-center justify-center py-12 text-center">
-                    <FileText className="h-16 w-16 text-muted-foreground mb-4" />
-                    <p className="text-muted-foreground">Belum ada data profil umum</p>
-                  </div>
-                ) : (
-                  <div>
-                    <h2 className="text-2xl font-bold text-slate-900 mb-4">Profil Umum</h2>
-                    <div
-                      className="prose prose-slate max-w-none"
-                      dangerouslySetInnerHTML={{ __html: profileData.profilUmum }}
-                    />
-                  </div>
-                )}
+                <AnimatePresence mode="wait">
+                  {activeTab === "profil-umum" && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                      transition={{ duration: 0.3, ease: "easeOut" }}
+                    >
+                      {!profileData.profilUmum ? (
+                        <div className="flex flex-col items-center justify-center py-12 text-center">
+                          <FileText className="h-16 w-16 text-muted-foreground mb-4" />
+                          <p className="text-muted-foreground">Belum ada data profil umum</p>
+                        </div>
+                      ) : (
+                        <div>
+                          <h2 className="text-2xl font-bold text-slate-900 mb-4">Profil Umum</h2>
+                          <div
+                            className="prose prose-slate max-w-none"
+                            dangerouslySetInnerHTML={{ __html: profileData.profilUmum }}
+                          />
+                        </div>
+                      )}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </TabsContent>
 
               <TabsContent value="wilayah" className="space-y-8 mt-8">
-                <div>
-                  <h2 className="text-2xl font-bold text-slate-900 mb-4">Informasi Wilayah</h2>
-                  <div className="space-y-3">
-                    <div className="flex justify-between border-b border-slate-200 pb-2">
-                      <span className="text-slate-600">Kecamatan:</span>
-                      <span className="font-semibold text-slate-900">{wilayahData.kecamatan || '-'}</span>
-                    </div>
-                    <div className="flex justify-between border-b border-slate-200 pb-2">
-                      <span className="text-slate-600">Kabupaten:</span>
-                      <span className="font-semibold text-slate-900">{wilayahData.kabupaten || '-'}</span>
-                    </div>
-                    <div className="flex justify-between border-b border-slate-200 pb-2">
-                      <span className="text-slate-600">Provinsi:</span>
-                      <span className="font-semibold text-slate-900">{wilayahData.provinsi || '-'}</span>
-                    </div>
-                    <div className="flex justify-between border-b border-slate-200 pb-2">
-                      <span className="text-slate-600">Jumlah Lingkungan:</span>
-                      <span className="font-semibold text-slate-900">{wilayahData.jumlahLingkungan || '-'}</span>
-                    </div>
-                  </div>
-                </div>
+                <AnimatePresence mode="wait">
+                  {activeTab === "wilayah" && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                      transition={{ duration: 0.3, ease: "easeOut" }}
+                    >
+                      <div>
+                        <h2 className="text-2xl font-bold text-slate-900 mb-4">Informasi Wilayah</h2>
+                        <div className="space-y-3">
+                          <div className="flex justify-between border-b border-slate-200 pb-2">
+                            <span className="text-slate-600">Kecamatan:</span>
+                            <span className="font-semibold text-slate-900">{wilayahData.kecamatan || '-'}</span>
+                          </div>
+                          <div className="flex justify-between border-b border-slate-200 pb-2">
+                            <span className="text-slate-600">Kabupaten:</span>
+                            <span className="font-semibold text-slate-900">{wilayahData.kabupaten || '-'}</span>
+                          </div>
+                          <div className="flex justify-between border-b border-slate-200 pb-2">
+                            <span className="text-slate-600">Provinsi:</span>
+                            <span className="font-semibold text-slate-900">{wilayahData.provinsi || '-'}</span>
+                          </div>
+                          <div className="flex justify-between border-b border-slate-200 pb-2">
+                            <span className="text-slate-600">Jumlah Lingkungan:</span>
+                            <span className="font-semibold text-slate-900">{wilayahData.jumlahLingkungan || '-'}</span>
+                          </div>
+                        </div>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </TabsContent>
             </Tabs>
           )}
