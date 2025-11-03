@@ -190,6 +190,7 @@ export default function EditSaranaPage({ params }: { params: Promise<{ id: strin
                 onChange={(url) => setFormData({ ...formData, imageUrl: url })}
                 onRemove={handleRemoveImage}
                 uploadEndpoint="/api/admin/facilities/upload"
+                previewHeight={80}
               />
             </div>
 

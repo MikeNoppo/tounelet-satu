@@ -8,7 +8,7 @@ export const UPLOAD_CONFIG = {
 }
 
 export interface UploadOptions {
-  folder: 'banners' | 'gallery' | 'potentials' | 'structure' | 'posts'
+  folder: 'banners' | 'gallery' | 'potentials' | 'structure' | 'posts' | 'facilities'
   maxSize?: number
   allowedTypes?: string[]
   customFilename?: string

@@ -105,6 +105,7 @@ export default function CreateSaranaPage() {
                 onChange={(url) => setFormData({ ...formData, imageUrl: url })}
                 onRemove={() => setFormData({ ...formData, imageUrl: "" })}
                 uploadEndpoint="/api/admin/facilities/upload"
+                previewHeight={80}
               />
             </div>
 
