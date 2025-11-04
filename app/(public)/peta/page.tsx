@@ -43,20 +43,20 @@ export default function PetaPage() {
       </section>
 
       <section className="py-16 px-4 bg-white">
-        <div className="mx-auto max-w-4xl">
-          <div className="border-2 border-slate-300 rounded-lg p-12 bg-slate-50 text-center">
-            <p className="text-slate-600 text-lg mb-4">Area Peta Desa Tounelet Satu</p>
-            <p className="text-slate-500 text-sm">(Embed ArcGIS/Google Maps di sini)</p>
-            <div className="mt-8 h-96 bg-slate-200 rounded-lg flex items-center justify-center relative overflow-hidden">
-              <Image
-                src="https://images.unsplash.com/photo-1569336415962-a4bd9f69cd83?w=800&h=600&fit=crop"
-                alt="Placeholder Peta"
-                fill
-                className="object-cover opacity-30"
-                sizes="(max-width: 1024px) 100vw, 800px"
-              />
-              <p className="text-slate-700 font-semibold z-10 relative">Placeholder untuk peta interaktif</p>
-            </div>
+        <div className="mx-auto max-w-7xl">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl font-bold text-slate-900">Peta Desa Tounelet Satu</h2>
+          </div>
+          <div className="relative w-full" style={{ height: 'auto' }}>
+            <Image
+              src="/map/maps.jpg"
+              alt="Peta Desa Tounelet Satu"
+              width={1920}
+              height={1080}
+              className="w-full h-auto rounded-lg shadow-lg"
+              sizes="100vw"
+              priority
+            />
           </div>
         </div>
       </section>
