@@ -27,4 +27,12 @@ yarn-error.log*
 next-env.d.ts
 /lib/generated/prisma
 
-/public/uploads
+/public/uploads/*
+!/public/uploads/.gitkeep
+!/public/uploads/banners/.gitkeep
+!/public/uploads/gallery/.gitkeep
+!/public/uploads/potentials/.gitkeep
+!/public/uploads/structure/.gitkeep
+!/public/uploads/posts/.gitkeep
+!/public/uploads/facilities/.gitkeep
+!/public/uploads/legacy/.gitkeep

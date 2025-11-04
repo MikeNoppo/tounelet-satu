@@ -1,5 +1,5 @@
 import path from 'path'
-import { uploadBlob, deleteBlob, extractBlobNameFromUrl } from './azure-storage'
+import { saveFile, removeFile, extractFilePathFromUrl } from './local-storage'
 
 export const UPLOAD_CONFIG = {
   maxFileSize: 10 * 1024 * 1024,
@@ -70,12 +70,12 @@ export async function uploadFile(file: File, options: UploadOptions): Promise<Up
     const baseFilename = options.customFilename || `${timestamp}`
     
     const filename = `${baseFilename}${ext}`.replace(/[^a-zA-Z0-9.-]/g, '_')
-    const blobName = `${options.folder}/${filename}`
+    const filePath = `${options.folder}/${filename}`
 
     const bytes = await file.arrayBuffer()
     const buffer = Buffer.from(bytes)
 
-    const url = await uploadBlob(buffer, blobName, file.type)
+    const url = await saveFile(buffer, filePath, file.type)
 
     return { success: true, url }
   } catch (error) {
@@ -90,12 +90,12 @@ export async function deleteFile(url: string): Promise<boolean> {
       return false
     }
 
-    const blobName = extractBlobNameFromUrl(url)
-    if (!blobName) {
+    const filePath = extractFilePathFromUrl(url)
+    if (!filePath) {
       return false
     }
     
-    return await deleteBlob(blobName)
+    return await removeFile(filePath)
   } catch (error) {
     console.error('Delete file error:', error)
     return false

@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@/lib/auth';
-import { uploadBlob } from '@/lib/azure-storage';
+import { saveFile } from '@/lib/local-storage';
 
 export async function POST(request: NextRequest) {
   try {
@@ -21,9 +21,9 @@ export async function POST(request: NextRequest) {
 
     const timestamp = Date.now();
     const filename = `${timestamp}-${file.name.replace(/\s+/g, '-')}`;
-    const blobName = `legacy/${filename}`;
+    const filePath = `legacy/${filename}`;
 
-    const url = await uploadBlob(buffer, blobName, file.type);
+    const url = await saveFile(buffer, filePath, file.type);
 
     return NextResponse.json({ url });
   } catch (error) {
