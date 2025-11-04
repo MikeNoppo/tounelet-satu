@@ -36,7 +36,7 @@ export function Footer() {
   return (
     <footer className="border-t border-slate-200 bg-slate-50">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           <div>
             <div className="flex items-center gap-2 font-bold text-lg text-slate-900 mb-4">
               <Image 
@@ -80,10 +80,32 @@ export function Footer() {
               </Link>
             </nav>
           </div>
+
+          <div>
+            <div className="flex items-start gap-3">
+              <Image 
+                src="/kkt144.png" 
+                alt="KKT-144 UNSRAT" 
+                width={50} 
+                height={50}
+                className="rounded-full shrink-0"
+              />
+              <div className="text-left">
+                <p className="text-sm font-medium text-slate-700">
+                  Developed by Syalomitha Palandeng
+                </p>
+                <p className="text-xs text-slate-600 mt-1">
+                  Facilitated through KKT-144 UNSRAT Posko Tounelet Satu
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div className="border-t border-slate-200 pt-8 text-center text-sm text-slate-600">
-          <p>© {currentYear} Desa Tounelet Satu. Semua hak dilindungi.</p>
+        <div className="border-t border-slate-200 pt-8">
+          <div className="text-center text-sm text-slate-600">
+            <p>© {currentYear} Desa Tounelet Satu. Semua hak dilindungi.</p>
+          </div>
         </div>
       </div>
     </footer>
