@@ -42,11 +42,25 @@ interface Settings {
 
 async function getSettings(): Promise<Settings> {
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000'}/api/public/settings`, {
-      next: { revalidate: 3600 }
+    // Get the base URL - use VERCEL_URL in production or localhost in development
+    const baseUrl = process.env.VERCEL_URL 
+      ? `https://${process.env.VERCEL_URL}` 
+      : 'http://localhost:3000'
+    
+    const res = await fetch(`${baseUrl}/api/public/settings`, {
+      cache: 'no-store',
+      headers: {
+        'Content-Type': 'application/json',
+      }
     })
-    if (!res.ok) return {}
-    return res.json()
+    
+    if (!res.ok) {
+      console.error('Settings fetch failed:', res.status, res.statusText)
+      return {}
+    }
+    
+    const data = await res.json()
+    return data
   } catch (error) {
     console.error('Failed to fetch settings:', error)
     return {}
@@ -55,9 +69,13 @@ async function getSettings(): Promise<Settings> {
 
 async function getAnnouncements(): Promise<Post[]> {
   try {
+    const baseUrl = process.env.VERCEL_URL 
+      ? `https://${process.env.VERCEL_URL}` 
+      : 'http://localhost:3000'
+    
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000'}/api/public/posts?category=PENGUMUMAN&limit=3`,
-      { next: { revalidate: 300 } }
+      `${baseUrl}/api/public/posts?category=PENGUMUMAN&limit=3`,
+      { cache: 'no-store' }
     )
     if (!res.ok) return []
     const data = await res.json()
@@ -70,9 +88,13 @@ async function getAnnouncements(): Promise<Post[]> {
 
 async function getPotentials(): Promise<Potential[]> {
   try {
+    const baseUrl = process.env.VERCEL_URL 
+      ? `https://${process.env.VERCEL_URL}` 
+      : 'http://localhost:3000'
+    
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000'}/api/public/potentials?limit=3`,
-      { next: { revalidate: 3600 } }
+      `${baseUrl}/api/public/potentials?limit=3`,
+      { cache: 'no-store' }
     )
     if (!res.ok) return []
     const data = await res.json()
@@ -85,9 +107,13 @@ async function getPotentials(): Promise<Potential[]> {
 
 async function getGallery(): Promise<GalleryItem[]> {
   try {
+    const baseUrl = process.env.VERCEL_URL 
+      ? `https://${process.env.VERCEL_URL}` 
+      : 'http://localhost:3000'
+    
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000'}/api/public/gallery?limit=4`,
-      { next: { revalidate: 3600 } }
+      `${baseUrl}/api/public/gallery?limit=4`,
+      { cache: 'no-store' }
     )
     if (!res.ok) return []
     const data = await res.json()
