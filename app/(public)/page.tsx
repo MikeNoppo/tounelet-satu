@@ -8,6 +8,10 @@ import { EmptyState } from "@/components/empty-state"
 import { HeroSection } from "@/components/hero-section"
 import { Newspaper, Sparkles, ImageIcon } from "lucide-react"
 
+// Force dynamic rendering to ensure data is always fresh
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
+
 interface Post {
   id: number
   type: string
