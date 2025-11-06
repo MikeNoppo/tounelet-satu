@@ -145,7 +145,7 @@ export default async function Home() {
   const stats = [
     { 
       label: "Penduduk", 
-      value: settings.totalJiwa || "-",
+      value: "944",
       iconName: "users" as const,
       gradient: "bg-linear-to-br from-green-500/10 to-green-600/5",
       iconColor: "text-green-600",
@@ -153,7 +153,7 @@ export default async function Home() {
     },
     { 
       label: "Keluarga", 
-      value: settings.jumlahKK || "-",
+      value: "312",
       iconName: "home" as const,
       gradient: "bg-linear-to-br from-emerald-500/10 to-emerald-600/5",
       iconColor: "text-emerald-600",
@@ -161,14 +161,14 @@ export default async function Home() {
     },
     { 
       label: "Tahun Berdiri", 
-      value: settings.tahunBerdiri || "-",
+      value: "2012",
       iconName: "calendar" as const,
       gradient: "bg-linear-to-br from-amber-500/10 to-amber-600/5",
       iconColor: "text-amber-600",
     },
     { 
       label: "Luas Wilayah", 
-      value: settings.luasWilayah ? `${settings.luasWilayah} km²` : "-",
+      value: "1,8 km²",
       iconName: "map" as const,
       gradient: "bg-linear-to-br from-teal-500/10 to-teal-600/5",
       iconColor: "text-teal-600",
