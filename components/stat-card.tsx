@@ -46,8 +46,11 @@ export function StatCard({
   const Icon = iconMap[iconName]
 
   // Parse numeric value for counter animation
-  const numericValue = parseInt(value.replace(/[^0-9]/g, '')) || 0
   const isYearData = label.toLowerCase().includes('tahun')
+  const isAreaData = label.toLowerCase().includes('luas')
+  
+  // Don't parse area data (contains decimal like "1,8 km²")
+  const numericValue = isAreaData ? 0 : (parseInt(value.replace(/[^0-9]/g, '')) || 0)
 
   useEffect(() => {
     if (isVisible && !hasAnimated && numericValue > 0) {
